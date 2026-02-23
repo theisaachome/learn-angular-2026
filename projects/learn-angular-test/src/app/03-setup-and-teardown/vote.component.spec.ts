@@ -1,9 +1,27 @@
-import { VoteComponent } from './vote.component'; 
+import { VoteComponent } from './vote.component';
+import {TestBed} from '@angular/core/testing';
 
 describe('VoteComponent', () => {
-  it('', () => {
+
+  let component: VoteComponent;
+  beforeEach(()=>{
+    component =new VoteComponent();
+  })
+  afterEach(()=>{
+
+  })
+  it('should increment totalVote when upVoted', () => {
+    // Arrange
+    // Act
+    component.upVote();
+    // Assert
+    expect(component.totalVotes).toBe(1);
+
   });
 
-  it('', () => {
+  it('should decrease totalVote when downVote', () => {
+    // Arrange
+    component.downVote();
+    expect(component.totalVotes).toBe(-1);
   });
 });
